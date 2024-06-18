@@ -30,7 +30,7 @@ namespace App_DB_3
         {
             using (var formCategories = new CategoriesForm()) ;
             {
-                //formCategories.ShowDialog();
+                formCategories.ShowDialog();
             }
         }
     }
