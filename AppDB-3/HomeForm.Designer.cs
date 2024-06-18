@@ -517,6 +517,7 @@
             this.categorieBtn.Caption = "Categorie";
             this.categorieBtn.Id = 0;
             this.categorieBtn.Name = "categorieBtn";
+            this.categorieBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.categorieBtn_ItemClick);
             // 
             // zakazniciBtn
             // 

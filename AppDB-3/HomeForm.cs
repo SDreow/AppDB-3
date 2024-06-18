@@ -21,5 +21,17 @@ namespace App_DB_3
 
 
         }
+        private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.Dispose();
+        }
+
+        private void categorieBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var formCategories = new CategoriesForm()) ;
+            {
+                //formCategories.ShowDialog();
+            }
+        }
     }
 }

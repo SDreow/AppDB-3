@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AppDB_3.Properties
+namespace App_DB_3.Properties
 {
 
 
