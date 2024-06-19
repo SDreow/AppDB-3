@@ -9,5 +9,8 @@ namespace App_DB_3.Model
         }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Brands> Brands { get; set; }
     }
 }

@@ -36,17 +36,16 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colcustomer_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfirst_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.collast_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colphone = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colemail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colstreet = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colstate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colzip_code = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colorder_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colorder_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colorder_status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colrequired_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colshipped_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colstaff_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colstore_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.textEditCObj = new DevExpress.XtraEditors.TextEdit();
             this.textEditDatumOdeslani = new DevExpress.XtraEditors.TextEdit();
@@ -83,7 +82,7 @@
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bar4 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -109,131 +108,100 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.customersBindingSource;
+            this.gridControl1.DataSource = this.ordersBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControl1.Location = new System.Drawing.Point(0, 248);
+            this.gridControl1.Location = new System.Drawing.Point(0, 201);
             this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1000, 385);
+            this.gridControl1.Size = new System.Drawing.Size(857, 313);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl1.Load += new System.EventHandler(this.HomeForm_Load);
             // 
-            // customersBindingSource
+            // ordersBindingSource
             // 
-            this.customersBindingSource.DataSource = typeof(App_DB_3.Model.Customers);
+            this.ordersBindingSource.DataSource = typeof(App_DB_3.Model.Orders);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colcustomer_id,
-            this.colfirst_name,
-            this.collast_name,
-            this.colphone,
-            this.colemail,
-            this.colstreet,
-            this.colcity,
-            this.colstate,
-            this.colzip_code});
-            this.gridView1.DetailHeight = 431;
+            this.colorder_date,
+            this.colorder_id,
+            this.colorder_status,
+            this.colrequired_date,
+            this.colshipped_date,
+            this.colstaff_id,
+            this.colstore_id});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // colcustomer_id
             // 
-            this.colcustomer_id.Caption = "ID";
+            this.colcustomer_id.Caption = "číslo zákazníka";
+            this.colcustomer_id.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colcustomer_id.FieldName = "customer_id";
-            this.colcustomer_id.MinWidth = 25;
             this.colcustomer_id.Name = "colcustomer_id";
             this.colcustomer_id.Visible = true;
-            this.colcustomer_id.VisibleIndex = 0;
-            this.colcustomer_id.Width = 87;
+            this.colcustomer_id.VisibleIndex = 3;
             // 
-            // colfirst_name
+            // colorder_date
             // 
-            this.colfirst_name.Caption = "Jméno";
-            this.colfirst_name.FieldName = "last_name";
-            this.colfirst_name.MinWidth = 25;
-            this.colfirst_name.Name = "colfirst_name";
-            this.colfirst_name.Visible = true;
-            this.colfirst_name.VisibleIndex = 1;
-            this.colfirst_name.Width = 87;
+            this.colorder_date.Caption = "datum objednávky";
+            this.colorder_date.FieldName = "order_date";
+            this.colorder_date.Name = "colorder_date";
+            this.colorder_date.Visible = true;
+            this.colorder_date.VisibleIndex = 2;
             // 
-            // collast_name
+            // colorder_id
             // 
-            this.collast_name.Caption = "Příjmení";
-            this.collast_name.FieldName = "last_name";
-            this.collast_name.MinWidth = 25;
-            this.collast_name.Name = "collast_name";
-            this.collast_name.Visible = true;
-            this.collast_name.VisibleIndex = 2;
-            this.collast_name.Width = 87;
+            this.colorder_id.Caption = "č. objednávky";
+            this.colorder_id.FieldName = "order_id";
+            this.colorder_id.Name = "colorder_id";
+            this.colorder_id.Visible = true;
+            this.colorder_id.VisibleIndex = 0;
             // 
-            // colphone
+            // colorder_status
             // 
-            this.colphone.Caption = "Telefon";
-            this.colphone.FieldName = "phone";
-            this.colphone.MinWidth = 25;
-            this.colphone.Name = "colphone";
-            this.colphone.Visible = true;
-            this.colphone.VisibleIndex = 3;
-            this.colphone.Width = 87;
+            this.colorder_status.Caption = "stav objednávky";
+            this.colorder_status.FieldName = "order_status";
+            this.colorder_status.Name = "colorder_status";
+            this.colorder_status.Visible = true;
+            this.colorder_status.VisibleIndex = 1;
             // 
-            // colemail
+            // colrequired_date
             // 
-            this.colemail.Caption = "E-mail";
-            this.colemail.FieldName = "email";
-            this.colemail.MinWidth = 25;
-            this.colemail.Name = "colemail";
-            this.colemail.Visible = true;
-            this.colemail.VisibleIndex = 4;
-            this.colemail.Width = 87;
+            this.colrequired_date.Caption = "požadované datum";
+            this.colrequired_date.FieldName = "required_date";
+            this.colrequired_date.Name = "colrequired_date";
+            this.colrequired_date.Visible = true;
+            this.colrequired_date.VisibleIndex = 5;
             // 
-            // colstreet
+            // colshipped_date
             // 
-            this.colstreet.Caption = "Ulice";
-            this.colstreet.FieldName = "street";
-            this.colstreet.MinWidth = 25;
-            this.colstreet.Name = "colstreet";
-            this.colstreet.Visible = true;
-            this.colstreet.VisibleIndex = 5;
-            this.colstreet.Width = 87;
+            this.colshipped_date.Caption = "datum odeslání";
+            this.colshipped_date.FieldName = "shipped_date";
+            this.colshipped_date.Name = "colshipped_date";
+            this.colshipped_date.Visible = true;
+            this.colshipped_date.VisibleIndex = 6;
             // 
-            // colcity
+            // colstaff_id
             // 
-            this.colcity.Caption = "Město";
-            this.colcity.FieldName = "city";
-            this.colcity.MinWidth = 25;
-            this.colcity.Name = "colcity";
-            this.colcity.Visible = true;
-            this.colcity.VisibleIndex = 6;
-            this.colcity.Width = 87;
+            this.colstaff_id.Caption = "číslo zaměstnance";
+            this.colstaff_id.FieldName = "staff_id";
+            this.colstaff_id.Name = "colstaff_id";
+            this.colstaff_id.Visible = true;
+            this.colstaff_id.VisibleIndex = 7;
             // 
-            // colstate
+            // colstore_id
             // 
-            this.colstate.Caption = "Stát";
-            this.colstate.FieldName = "state";
-            this.colstate.MinWidth = 25;
-            this.colstate.Name = "colstate";
-            this.colstate.Visible = true;
-            this.colstate.VisibleIndex = 7;
-            this.colstate.Width = 87;
-            // 
-            // colzip_code
-            // 
-            this.colzip_code.Caption = "PSČ";
-            this.colzip_code.FieldName = "zip_code";
-            this.colzip_code.MinWidth = 25;
-            this.colzip_code.Name = "colzip_code";
-            this.colzip_code.Visible = true;
-            this.colzip_code.VisibleIndex = 8;
-            this.colzip_code.Width = 87;
+            this.colstore_id.Caption = "číslo obchodu";
+            this.colstore_id.FieldName = "store_id";
+            this.colstore_id.Name = "colstore_id";
+            this.colstore_id.Visible = true;
+            this.colstore_id.VisibleIndex = 4;
             // 
             // layoutControl1
             // 
@@ -246,84 +214,83 @@
             this.layoutControl1.Controls.Add(this.textEditDatumObj);
             this.layoutControl1.Controls.Add(this.textEditReqDatum);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 25);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 20);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1535, 416, 650, 400);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1000, 223);
+            this.layoutControl1.Size = new System.Drawing.Size(857, 181);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // textEditCObj
             // 
-            this.textEditCObj.Location = new System.Drawing.Point(134, 15);
-            this.textEditCObj.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditCObj.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "order_id", true));
+            this.textEditCObj.Location = new System.Drawing.Point(117, 13);
             this.textEditCObj.Name = "textEditCObj";
-            this.textEditCObj.Size = new System.Drawing.Size(364, 22);
+            this.textEditCObj.Size = new System.Drawing.Size(309, 20);
             this.textEditCObj.StyleController = this.layoutControl1;
             this.textEditCObj.TabIndex = 4;
             // 
             // textEditDatumOdeslani
             // 
-            this.textEditDatumOdeslani.Location = new System.Drawing.Point(622, 93);
-            this.textEditDatumOdeslani.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditDatumOdeslani.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "shipped_date", true));
+            this.textEditDatumOdeslani.Location = new System.Drawing.Point(534, 85);
             this.textEditDatumOdeslani.Name = "textEditDatumOdeslani";
-            this.textEditDatumOdeslani.Size = new System.Drawing.Size(364, 22);
+            this.textEditDatumOdeslani.Size = new System.Drawing.Size(310, 20);
             this.textEditDatumOdeslani.StyleController = this.layoutControl1;
             this.textEditDatumOdeslani.TabIndex = 5;
             // 
             // textEditCisloZakaznika
             // 
-            this.textEditCisloZakaznika.Location = new System.Drawing.Point(134, 93);
-            this.textEditCisloZakaznika.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditCisloZakaznika.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "customer_id", true));
+            this.textEditCisloZakaznika.Location = new System.Drawing.Point(117, 85);
             this.textEditCisloZakaznika.Name = "textEditCisloZakaznika";
-            this.textEditCisloZakaznika.Size = new System.Drawing.Size(364, 22);
+            this.textEditCisloZakaznika.Size = new System.Drawing.Size(309, 20);
             this.textEditCisloZakaznika.StyleController = this.layoutControl1;
             this.textEditCisloZakaznika.TabIndex = 6;
             // 
             // textEditCisloObchodu
             // 
-            this.textEditCisloObchodu.Location = new System.Drawing.Point(622, 15);
-            this.textEditCisloObchodu.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditCisloObchodu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "store_id", true));
+            this.textEditCisloObchodu.Location = new System.Drawing.Point(534, 13);
             this.textEditCisloObchodu.Name = "textEditCisloObchodu";
-            this.textEditCisloObchodu.Size = new System.Drawing.Size(364, 22);
+            this.textEditCisloObchodu.Size = new System.Drawing.Size(310, 20);
             this.textEditCisloObchodu.StyleController = this.layoutControl1;
             this.textEditCisloObchodu.TabIndex = 7;
             // 
             // textEditStavObj
             // 
-            this.textEditStavObj.Location = new System.Drawing.Point(134, 41);
-            this.textEditStavObj.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditStavObj.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "order_status", true));
+            this.textEditStavObj.Location = new System.Drawing.Point(117, 37);
             this.textEditStavObj.Name = "textEditStavObj";
-            this.textEditStavObj.Size = new System.Drawing.Size(364, 22);
+            this.textEditStavObj.Size = new System.Drawing.Size(309, 20);
             this.textEditStavObj.StyleController = this.layoutControl1;
             this.textEditStavObj.TabIndex = 8;
             // 
             // textEditCisloZamestnance
             // 
-            this.textEditCisloZamestnance.Location = new System.Drawing.Point(622, 41);
-            this.textEditCisloZamestnance.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditCisloZamestnance.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "staff_id", true));
+            this.textEditCisloZamestnance.Location = new System.Drawing.Point(534, 37);
             this.textEditCisloZamestnance.Name = "textEditCisloZamestnance";
-            this.textEditCisloZamestnance.Size = new System.Drawing.Size(364, 22);
+            this.textEditCisloZamestnance.Size = new System.Drawing.Size(310, 20);
             this.textEditCisloZamestnance.StyleController = this.layoutControl1;
             this.textEditCisloZamestnance.TabIndex = 9;
             // 
             // textEditDatumObj
             // 
-            this.textEditDatumObj.Location = new System.Drawing.Point(134, 67);
-            this.textEditDatumObj.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditDatumObj.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "order_date", true));
+            this.textEditDatumObj.Location = new System.Drawing.Point(117, 61);
             this.textEditDatumObj.Name = "textEditDatumObj";
-            this.textEditDatumObj.Size = new System.Drawing.Size(364, 22);
+            this.textEditDatumObj.Size = new System.Drawing.Size(309, 20);
             this.textEditDatumObj.StyleController = this.layoutControl1;
             this.textEditDatumObj.TabIndex = 10;
             // 
             // textEditReqDatum
             // 
-            this.textEditReqDatum.Location = new System.Drawing.Point(622, 67);
-            this.textEditReqDatum.Margin = new System.Windows.Forms.Padding(4);
+            this.textEditReqDatum.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ordersBindingSource, "required_date", true));
+            this.textEditReqDatum.Location = new System.Drawing.Point(534, 61);
             this.textEditReqDatum.Name = "textEditReqDatum";
-            this.textEditReqDatum.Size = new System.Drawing.Size(364, 22);
+            this.textEditReqDatum.Size = new System.Drawing.Size(310, 20);
             this.textEditReqDatum.StyleController = this.layoutControl1;
             this.textEditReqDatum.TabIndex = 12;
             // 
@@ -349,21 +316,21 @@
             this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
             columnDefinition1,
             columnDefinition2});
-            rowDefinition1.Height = 26D;
+            rowDefinition1.Height = 24D;
             rowDefinition1.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition2.Height = 26D;
+            rowDefinition2.Height = 24D;
             rowDefinition2.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition3.Height = 26D;
+            rowDefinition3.Height = 24D;
             rowDefinition3.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition4.Height = 119D;
+            rowDefinition4.Height = 87D;
             rowDefinition4.SizeType = System.Windows.Forms.SizeType.AutoSize;
             this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition1,
             rowDefinition2,
             rowDefinition3,
             rowDefinition4});
-            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 11, 11);
-            this.Root.Size = new System.Drawing.Size(1000, 223);
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 9, 9);
+            this.Root.Size = new System.Drawing.Size(857, 181);
             this.Root.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.Root.TextVisible = false;
             // 
@@ -372,94 +339,94 @@
             this.layoutControlItem5.Control = this.textEditCisloObchodu;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem5.Location = new System.Drawing.Point(488, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(417, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem5.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(418, 24);
             this.layoutControlItem5.Text = "číslo obchodu";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textEditStavObj;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem6.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(417, 24);
             this.layoutControlItem6.Text = "stav objednávky";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.textEditCisloZamestnance;
             this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem7.Location = new System.Drawing.Point(488, 26);
+            this.layoutControlItem7.Location = new System.Drawing.Point(417, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem7.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem7.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(418, 24);
             this.layoutControlItem7.Text = "číslo zaměstnance";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.textEditDatumObj;
             this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem8.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(417, 24);
             this.layoutControlItem8.Text = "datum  objednávky";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.textEditReqDatum;
             this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem10.Location = new System.Drawing.Point(488, 52);
+            this.layoutControlItem10.Location = new System.Drawing.Point(417, 48);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem10.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlItem10.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(418, 24);
             this.layoutControlItem10.Text = "požadované datum";
             this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.textEditDatumOdeslani;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem3.Location = new System.Drawing.Point(488, 78);
+            this.layoutControlItem3.Location = new System.Drawing.Point(417, 72);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem3.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem3.Size = new System.Drawing.Size(488, 119);
+            this.layoutControlItem3.Size = new System.Drawing.Size(418, 87);
             this.layoutControlItem3.Text = "datum odeslání";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.textEditCisloZakaznika;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 78);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlItem4.Size = new System.Drawing.Size(488, 119);
+            this.layoutControlItem4.Size = new System.Drawing.Size(417, 87);
             this.layoutControlItem4.Text = "číslo zákazníka";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(92, 13);
             // 
             // layoutControlItem2
             // 
@@ -468,10 +435,10 @@
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(488, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(417, 24);
             this.layoutControlItem2.Text = "číslo objednávky";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 16);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(92, 13);
             // 
             // barManager1
             // 
@@ -524,6 +491,7 @@
             this.zakazniciBtn.Caption = "Zákazníci";
             this.zakazniciBtn.Id = 1;
             this.zakazniciBtn.Name = "zakazniciBtn";
+            this.zakazniciBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.zakazniciBtn_ItemClick);
             // 
             // obchodyBtn
             // 
@@ -561,35 +529,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1000, 25);
+            this.barDockControlTop.Size = new System.Drawing.Size(857, 20);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 633);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 514);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1000, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(857, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 20);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 494);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1000, 25);
+            this.barDockControlRight.Location = new System.Drawing.Point(857, 20);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 608);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 494);
             // 
             // skinDropDownButtonItem1
             // 
@@ -629,20 +593,19 @@
             // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 633);
+            this.ClientSize = new System.Drawing.Size(857, 514);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomeForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -708,16 +671,15 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraBars.Bar bar4;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
-        private System.Windows.Forms.BindingSource customersBindingSource;
+        private System.Windows.Forms.BindingSource ordersBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colcustomer_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colfirst_name;
-        private DevExpress.XtraGrid.Columns.GridColumn collast_name;
-        private DevExpress.XtraGrid.Columns.GridColumn colphone;
-        private DevExpress.XtraGrid.Columns.GridColumn colemail;
-        private DevExpress.XtraGrid.Columns.GridColumn colstreet;
-        private DevExpress.XtraGrid.Columns.GridColumn colcity;
-        private DevExpress.XtraGrid.Columns.GridColumn colstate;
-        private DevExpress.XtraGrid.Columns.GridColumn colzip_code;
+        private DevExpress.XtraGrid.Columns.GridColumn colorder_date;
+        private DevExpress.XtraGrid.Columns.GridColumn colorder_id;
+        private DevExpress.XtraGrid.Columns.GridColumn colorder_status;
+        private DevExpress.XtraGrid.Columns.GridColumn colrequired_date;
+        private DevExpress.XtraGrid.Columns.GridColumn colshipped_date;
+        private DevExpress.XtraGrid.Columns.GridColumn colstaff_id;
+        private DevExpress.XtraGrid.Columns.GridColumn colstore_id;
     }
 }
 
