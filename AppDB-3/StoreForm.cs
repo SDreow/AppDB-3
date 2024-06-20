@@ -1,31 +1,29 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Text;
 using System.Windows.Forms;
 
 namespace App_DB_3
 {
-    public partial class CustomersForm : XtraForm
+    public partial class StoreForm : XtraForm
     {
         private Model.App3DbContext _db;
-        public CustomersForm()
+        public StoreForm()
         {
             InitializeComponent();
         }
-
-        private void gridControlCustomers_Load(object sender, EventArgs e)
+        private void StoreForm_Load(object sender, EventArgs e)
         {
             _db = new Model.App3DbContext();
-            _db.Customers.Load();
-            customersBindingSource.DataSource = _db.Customers.Local.ToBindingList();
+            _db.Store.Load();
+            storeBindingSource.DataSource = _db.Store.Local.ToBindingList();
         }
-        private void CustomersForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void StoreForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            customersBindingSource.EndEdit();
-            if (gridViewCustomers.IsEditing)
-                gridViewCustomers.CloseEditor();
+            storeBindingSource.EndEdit();
+            if (gridView1.IsEditing)
+                gridView1.CloseEditor();
             if (_db.ChangeTracker.HasChanges())
             {
                 var dialog = XtraMessageBox.Show("Přejete si uložit změny ?", "Uložení změn", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -39,6 +37,10 @@ namespace App_DB_3
                     e.Cancel = !UlozData();
                 }
             }
+            if (e.Cancel == false)
+            {
+                _db.Dispose();
+            }
         }
         private bool UlozData()
         {
@@ -47,7 +49,7 @@ namespace App_DB_3
                 _db.SaveChanges();
                 return true;
             }
-            catch (DbEntityValidationException dbEVE)
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEVE)
             {
                 var chyby = new StringBuilder();
                 foreach (var validationErrors in dbEVE.EntityValidationErrors)
@@ -57,22 +59,21 @@ namespace App_DB_3
                         chyby.AppendLine($"Chyba v: {validationErrors.ValidationErrors} - {validationError.ErrorMessage}");
                     }
                 }
-                XtraMessageBox.Show(dbEVE.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(chyby.ToString(), "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Chyba uložení dat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Chyba v uložení dat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            return false;
         }
 
-
-        private void barBtnSaveCustomers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barBtnSaveStore_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            customersBindingSource.EndEdit();
-            gridViewCustomers.CloseEditor();
+            storeBindingSource.EndEdit();
+            gridView1.CloseEditor();
             UlozData();
         }
-
     }
 }

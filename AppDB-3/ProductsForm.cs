@@ -1,8 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.ComponentModel;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -10,23 +8,24 @@ using System.Windows.Forms;
 
 namespace App_DB_3
 {
-    public partial class CategoriesForm : XtraForm
+    public partial class ProductsForm : XtraForm
     {
         private Model.App3DbContext _db;
-        public CategoriesForm()
+        public ProductsForm()
         {
             InitializeComponent();
         }
-        private void CategoriesForm_Load(object sender, EventArgs e)
+        private void ProductsForm_Load(object sender, EventArgs e)
         {
             _db = new Model.App3DbContext();
-            _db.Categories.Load();
-            categoriesBindingSource.DataSource = _db.Categories.Local.ToBindingList();
-            //categoriesBindingSource.DataSource = _db.Categories.Select(s => new { s.Category_id, s.Category_name }).ToList();
+            _db.Products.Load();
+            productsBindingSource.DataSource = _db.Products.Local.ToBindingList();
+            repositoryItemLookUpEdit1.DataSource = _db.Categories.Select(s => new { s.Category_id, s.Category_name }).ToList();
+            repositoryItemLookUpEditBrands.DataSource = _db.Brands.Select(s => new { s.Brand_id, s.Brand_Name }).ToList();
         }
-        private void CategoriesForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ProductsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            categoriesBindingSource.EndEdit();
+            productsBindingSource.EndEdit();
             if (gridView1.IsEditing)
                 gridView1.CloseEditor();
             if (_db.ChangeTracker.HasChanges())
@@ -54,22 +53,17 @@ namespace App_DB_3
                 _db.SaveChanges();
                 return true;
             }
-            catch (DbEntityValidationException dbEVE)
+            catch (DbEntityValidationException ex)
             {
                 var chyby = new StringBuilder();
-                foreach (var validationErrors in dbEVE.EntityValidationErrors)
+                foreach (var validationErrors in ex.EntityValidationErrors)
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
                         chyby.AppendLine($"Chyba v: {validationErrors.ValidationErrors} - {validationError.ErrorMessage}");
                     }
                 }
-                MessageBox.Show(chyby.ToString(), "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (DbUpdateException dbUE)
-            {
-                // Zde můžete přidat specifické zpracování pro chyby aktualizace databáze, například pro problémy s category_id
-                MessageBox.Show("Nelze aktualizovat 'category_id', protože by to mohlo porušit omezení databáze.", "Chyba aktualizace", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.ToString(), "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception vyjimka)
             {
@@ -78,28 +72,32 @@ namespace App_DB_3
             return false;
         }
 
-        private void saveBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barBtnSaveProducts_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            categoriesBindingSource.EndEdit();
+            productsBindingSource.EndEdit();
             gridView1.CloseEditor();
             UlozData();
         }
-        private void barBtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        //validace na řádek
+        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-            using (var addForm = new AddForm())
+            var products = gridView1.GetFocusedRow() as Model.Products;
+            if (products.list_price == 0)
             {
-                var result = addForm.ShowDialog();
-                if (result == DialogResult.OK)
+                e.Valid = false;
+                e.ErrorText = "List price must be greater than 0.";
+            }
+        }
+        //mazání na klávesu
+        private void gridControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && gridView1.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            {
+                if (XtraMessageBox.Show("Opravdu chcete smazat tento záznam?", "Smazání záznamu", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    RefreshCategories(); // Volá metodu pro obnovení dat kategorií
+                    gridView1.DeleteRow(gridView1.FocusedRowHandle);
                 }
             }
         }
-        private void RefreshCategories()
-        {
-            _db.Categories.Load(); // Znovu načte kategorie z databáze
-            categoriesBindingSource.DataSource = _db.Categories.Local.ToBindingList(); // Aktualizuje zdroj dat pro zobrazení
-        }
     }
-
 }

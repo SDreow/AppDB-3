@@ -1,4 +1,5 @@
 ﻿using App_DB_3.Model;
+using DevExpress.XtraEditors.Popup;
 using System;
 using System.Data.Entity;
 using System.Windows.Forms;
@@ -39,6 +40,22 @@ namespace App_DB_3
             using (var formCustomers = new CustomersForm())
             {
                 formCustomers.ShowDialog();
+            }
+        }
+
+        private void obchodyBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var formStore = new StoreForm())
+            {
+                formStore.ShowDialog();
+            }
+        }
+
+        private void produktyBtn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var formProducts = new ProductsForm())
+            {
+                formProducts.ShowDialog();
             }
         }
     }

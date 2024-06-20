@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition4 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition7 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition8 = new DevExpress.XtraLayout.RowDefinition();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -309,26 +309,26 @@
             this.layoutControlItem2});
             this.Root.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.Root.Name = "Root";
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition1.Width = 100D;
-            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 100D;
+            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition3.Width = 100D;
+            columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition4.Width = 100D;
             this.Root.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1,
-            columnDefinition2});
-            rowDefinition1.Height = 24D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition2.Height = 24D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition3.Height = 24D;
-            rowDefinition3.SizeType = System.Windows.Forms.SizeType.AutoSize;
-            rowDefinition4.Height = 87D;
-            rowDefinition4.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            columnDefinition3,
+            columnDefinition4});
+            rowDefinition5.Height = 24D;
+            rowDefinition5.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition6.Height = 24D;
+            rowDefinition6.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition7.Height = 24D;
+            rowDefinition7.SizeType = System.Windows.Forms.SizeType.AutoSize;
+            rowDefinition8.Height = 87D;
+            rowDefinition8.SizeType = System.Windows.Forms.SizeType.AutoSize;
             this.Root.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2,
-            rowDefinition3,
-            rowDefinition4});
+            rowDefinition5,
+            rowDefinition6,
+            rowDefinition7,
+            rowDefinition8});
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 9, 9);
             this.Root.Size = new System.Drawing.Size(857, 181);
             this.Root.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -481,7 +481,7 @@
             // 
             // categorieBtn
             // 
-            this.categorieBtn.Caption = "Categorie";
+            this.categorieBtn.Caption = "Kategorie";
             this.categorieBtn.Id = 0;
             this.categorieBtn.Name = "categorieBtn";
             this.categorieBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.categorieBtn_ItemClick);
@@ -498,12 +498,14 @@
             this.obchodyBtn.Caption = "Obchody";
             this.obchodyBtn.Id = 2;
             this.obchodyBtn.Name = "obchodyBtn";
+            this.obchodyBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.obchodyBtn_ItemClick);
             // 
             // produktyBtn
             // 
             this.produktyBtn.Caption = "Produkty";
             this.produktyBtn.Id = 3;
             this.produktyBtn.Name = "produktyBtn";
+            this.produktyBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.produktyBtn_ItemClick);
             // 
             // znackyBtn
             // 
@@ -603,7 +605,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "HomeForm";
-            this.Text = "Form1";
+            this.Text = "AppDB";
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

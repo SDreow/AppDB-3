@@ -12,5 +12,6 @@ namespace App_DB_3.Model
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Brands> Brands { get; set; }
+        public virtual DbSet<Store> Store { get; set; }
     }
 }

@@ -42,6 +42,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barBtnAdd = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -101,8 +102,9 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.saveBtn});
-            this.barManager1.MaxItemId = 1;
+            this.saveBtn,
+            this.barBtnAdd});
+            this.barManager1.MaxItemId = 2;
             // 
             // bar1
             // 
@@ -111,7 +113,8 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.saveBtn)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.saveBtn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnAdd)});
             this.bar1.Text = "Tools";
             // 
             // saveBtn
@@ -155,6 +158,15 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 426);
             // 
+            // barBtnAdd
+            // 
+            this.barBtnAdd.Caption = "Add";
+            this.barBtnAdd.Id = 1;
+            this.barBtnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barBtnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barBtnAdd.Name = "barBtnAdd";
+            this.barBtnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAdd_ItemClick);
+            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,7 +178,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "CategoriesForm";
-            this.Text = "CategoriesForm";
+            this.Text = "Kategorie";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CategoriesForm_FormClosing);
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -192,5 +204,6 @@
         private System.Windows.Forms.BindingSource categoriesBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colCategory_id;
         private DevExpress.XtraGrid.Columns.GridColumn colCategory_name;
+        private DevExpress.XtraBars.BarButtonItem barBtnAdd;
     }
 }
