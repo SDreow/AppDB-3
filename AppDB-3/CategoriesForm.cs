@@ -66,7 +66,7 @@ namespace App_DB_3
                 }
                 MessageBox.Show(chyby.ToString(), "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (DbUpdateException dbUE)
+            catch (DbUpdateException)
             {
                 // Zde můžete přidat specifické zpracování pro chyby aktualizace databáze, například pro problémy s category_id
                 MessageBox.Show("Nelze aktualizovat 'category_id', protože by to mohlo porušit omezení databáze.", "Chyba aktualizace", MessageBoxButtons.OK, MessageBoxIcon.Error);

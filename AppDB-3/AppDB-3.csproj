@@ -113,6 +113,13 @@
     <Compile Include="StoreForm.Designer.cs">
       <DependentUpon>StoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestLINQ.cs" />
+    <Compile Include="TestLinqForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestLinqForm.Designer.cs">
+      <DependentUpon>TestLinqForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,7 +148,11 @@
     <EmbeddedResource Include="StoreForm.resx">
       <DependentUpon>StoreForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestLinqForm.resx">
+      <DependentUpon>TestLinqForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\App_DB_3.Model.App3DbContext.datasource" />
     <None Include="Properties\DataSources\App_DB_3.Model.Brands.datasource" />
     <None Include="Properties\DataSources\App_DB_3.Model.Categories.datasource" />
     <None Include="Properties\DataSources\App_DB_3.Model.Customers.datasource" />

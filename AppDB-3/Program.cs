@@ -16,7 +16,16 @@ namespace App_DB_3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+
+            // Vytvoření instance třídy TestLINQ a spuštění metody Test
+            var testLINQ = new TestLINQ();
+            testLINQ.Test();
+            testLINQ.Test2();
+            testLINQ.JoinProductsAndCategories();
+
+            // Spuštění hlavního formuláře aplikace
+            //Application.Run(new HomeForm());
+            Application.Run(new TestLinqForm());
         }
     }
 }
