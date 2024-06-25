@@ -44,7 +44,7 @@ namespace App_DB_3.Model
                 case "phone":
                     if (string.IsNullOrEmpty(phone) || !phone.Contains("+"))
                     {
-                        info.ErrorText = "Telefon musí obsahovat znaménko +";
+                        info.ErrorText = "Telefon musí obsahovat předvolbu země";
                         info.ErrorType = ErrorType.Critical;
                     }
                     break;
