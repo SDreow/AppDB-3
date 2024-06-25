@@ -2,7 +2,8 @@
 using System;
 using System.Data;
 using System.Linq;
-
+using System.Data.Entity;
+using DevExpress.Skins;
 namespace App_DB_3
 {
     public partial class TestLinqForm : XtraForm
@@ -31,14 +32,15 @@ namespace App_DB_3
                     Console.WriteLine("Spojeno");
                     var joinQuery = from p in db.Products
                                     join c in db.Categories on p.category_id equals c.Category_id
-                                    select new
+                                    select new ViewProduct
                                     {
-                                        p.product_id,
-                                        p.product_name,
+                                        product_id = p.product_id,
+                                        product_name = p.product_name,
                                         CategoryName = c.Category_name,
-                                        p.brand_id,
-                                        p.model_year,
-                                        p.list_price
+                                        brand_id = p.brand_id,
+                                        model_year = p.model_year,
+                                        list_price = p.list_price,
+                                        test = 0
                                     };
 
                     if (!string.IsNullOrEmpty(searchCondition1))
@@ -63,6 +65,17 @@ namespace App_DB_3
                 }
 
             }
+        }
+
+        private class ViewProduct
+        {
+            public int product_id { get; set; }
+            public string product_name { get; set; }
+            public string CategoryName { get; set; }
+            public int brand_id { get; set; }
+            public short model_year { get; set; }
+            public decimal list_price { get; set; }
+            public int test { get; internal set; }
         }
     }
 }
