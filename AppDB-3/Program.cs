@@ -19,11 +19,11 @@ namespace App_DB_3
 
             // Vytvoření instance třídy TestLINQ a spuštění metody Test
             var testLINQ = new TestLINQ();
-            //testLINQ.Test();
-            //testLINQ.Test2();
-            //testLINQ.InnerJoinProductsAndCategories();
-            //testLINQ.LeftJoinProductsAndCategories();
-            //testLINQ.Groupování();
+            testLINQ.Test();
+            testLINQ.Test2();
+            testLINQ.InnerJoinProductsAndCategories();
+            testLINQ.LeftJoinProductsAndCategories();
+            testLINQ.Groupování();
             testLINQ.VybratVice();
 
             // Spuštění hlavního formuláře aplikace
