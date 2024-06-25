@@ -11,7 +11,7 @@ namespace App_DB_3
         {
             InitializeComponent();
             // Přidání obsluhy události pro simpleButton1
-            this.simpleButton1.Click += new System.EventHandler(this.SearchButton_Click);
+            simpleButton1.Click += new EventHandler(SearchButton_Click);
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace App_DB_3
 
                     if (!string.IsNullOrEmpty(searchCondition1))
                     {
-                        joinQuery = joinQuery.Where(p => p.product_name.Contains(searchCondition1));
+                        joinQuery = joinQuery.Where(p => p.product_name.Contains(searchCondition1) || p.CategoryName.Contains(searchCondition1));
                     }
 
                     var joinResults = joinQuery.ToList();
@@ -61,6 +61,7 @@ namespace App_DB_3
 
                     gridControl1.DataSource = results;
                 }
+
             }
         }
     }
